@@ -4,11 +4,14 @@ import cors from 'cors'
 import helmet from 'helmet'
 import morgan from 'morgan'
 import authRoutes from '../src/auth/auth.routes.js'
+import fieldRoutes from '../src/fields/field.routes.js'
+import reservationRoutes from '../src/reservations/reservation.routes.js'
 import { dbConnection } from './db.js'
 
 //POO crear mas servidores
 export class ExpressServer {
     constructor(){
+        this.urlBase = '/sportsFieldManager/v1'
         this.app = express()
         this.middlewares()
         this.connectDB()
@@ -25,7 +28,9 @@ export class ExpressServer {
         this.app.use(morgan('dev'))
     }
     routes(){
-        this.app.use('/user', authRoutes)
+        this.app.use(`${this.urlBase}/auth`, authRoutes)
+        this.app.use(`${this.urlBase}/field`, fieldRoutes)
+        this.app.use(`${this.urlBase}/reservation`, reservationRoutes)
     }
     listen(){
         this.app.listen(process.env.PORT, ()=>{
