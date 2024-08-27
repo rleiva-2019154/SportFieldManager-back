@@ -39,6 +39,8 @@ export const loginValidator = [
 
 export const addFieldValidator = [
     check("fieldName", "El nombre de la cancha es obligatoria").not().isEmpty(),
+    check("fieldType", "El tipo de cancha es obligatoria").not().isEmpty(),
+    check("capacity", "La capacidad de la cancha es obligatoria").not().isEmpty(),
     validateInput
 ]
 

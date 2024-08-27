@@ -1,7 +1,9 @@
 import { Router } from "express";
 import { 
     reserveField,
-    userReservations
+    userReservations,
+    updateReservation,
+    deleteReservation
 } from "./reservation.controller.js";
 import { uploadReservationImage } from "../../middlewares/multer-uploads.js";
 import { addReservation } from "../../middlewares/check-validators.js";
@@ -22,5 +24,9 @@ api.get(
     validateJwt,
     userReservations
 )
+
+api.put("/updateReservation/:id", uploadReservationImage.single('payment'), updateReservation)
+
+api.delete("/deleteReservation/:id", deleteReservation)
 
 export default api
