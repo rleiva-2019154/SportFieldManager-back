@@ -44,6 +44,66 @@ export const listFields = async(req, res)=> {
         return res.status(500).send({
             message: 'No se pudieron obtener las canchas, intenta de nuevo más tarde',
             err,
+        })
+    }
+}
+
+export const editField = async (req, res) => {
+    try {
+        const { id } = req.params; // Obtiene el ID de la cancha desde los parámetros de la URL
+        const data = req.body; // Obtiene los datos a actualizar desde el cuerpo de la solicitud
+
+        // Si se sube una nueva foto, actualiza el campo `photo`, si no, usa la existente
+        data.photo = req.file?.filename ?? data.photo;
+
+        // Actualiza la cancha en la base de datos
+        const updatedField = await Field.findByIdAndUpdate(id, data, { new: true });
+
+        if (!updatedField) {
+            return res.status(404).json({ message: "Cancha no encontrada" });
+        }
+
+        return res.json({
+            message: "Cancha actualizada correctamente",
+            fieldDetails: {
+                field: updatedField.fieldName,
+                type: updatedField.fieldType,
+                capacity: updatedField.capacity,
+                photo: updatedField.photo
+            },
         });
+    } catch (err) {
+        console.error('Error al actualizar cancha', err);
+        return res.status(500).send({
+            message: 'No se pudo actualizar la cancha, intenta de nuevo más tarde',
+            err,
+        });
+    }
+}
+
+
+export const deleteField = async (req, res) => {
+    try {
+        const { id } = req.params; // Obtiene el ID de la cancha desde los parámetros de la URL
+
+        // Encuentra la cancha por ID y la elimina
+        const deletedField = await Field.findByIdAndDelete(id);
+        
+        // Si la cancha no se encuentra, devuelve un error 404
+        if (!deletedField) {
+            return res.status(404).json({ message: "Cancha no encontrada" });
+        }
+
+        // Devuelve un mensaje indicando que la cancha fue eliminada
+        return res.json({
+            message: "Cancha eliminada correctamente",
+            fieldDetails: deletedField,
+        });
+    } catch (err) {
+        console.error('Error al eliminar cancha', err);
+        return res.status(500).send({
+            message: 'No se pudo eliminar la cancha, intenta de nuevo más tarde',
+            err,
+        })
     }
 }
