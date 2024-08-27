@@ -1,0 +1,225 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "SportsFieldManager",
+    "dateExported": "2024-08-27T06:40:20.495Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "8bb20fbf-1eb9-4911-bb8d-c88a1814c8ed",
+            "name": "Fields",
+            "containerId": "",
+            "created": "2024-08-27T03:28:34.447Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "52f8183d-4cc4-4ec5-bde5-0ed9ed9d1bf8",
+            "name": "Auth",
+            "containerId": "",
+            "created": "2024-08-27T04:38:04.611Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "f7487dff-61cc-454d-b41c-1bf1f280b27f",
+            "name": "Reservation",
+            "containerId": "",
+            "created": "2024-08-27T04:38:15.300Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "75bca065-7172-4064-8fe6-78c537379340",
+            "colId": "eba6fbc3-efe6-4924-915a-059ba4379c70",
+            "containerId": "52f8183d-4cc4-4ec5-bde5-0ed9ed9d1bf8",
+            "name": "Register",
+            "url": "auth/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-08-22T18:03:04.778Z",
+            "modified": "2024-08-27T04:09:35.169Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Rudgar"
+                    },
+                    {
+                        "name": "surname",
+                        "value": "Leiva"
+                    },
+                    {
+                        "name": "username",
+                        "value": "rleiva13"
+                    },
+                    {
+                        "name": "email",
+                        "value": "rleiva13@gmail.com"
+                    },
+                    {
+                        "name": "password",
+                        "value": "12345678"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "profilePicture",
+                        "value": "c:\\Users\\lenin.DESKTOP-HEU2GJD\\Downloads\\Me.jpg"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "f4ef9971-dbc4-44e8-9823-7261f538ad21",
+            "colId": "eba6fbc3-efe6-4924-915a-059ba4379c70",
+            "containerId": "52f8183d-4cc4-4ec5-bde5-0ed9ed9d1bf8",
+            "name": "Login",
+            "url": "auth/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-08-27T00:06:27.166Z",
+            "modified": "2024-08-27T06:19:03.395Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "email",
+                        "value": "rleiva09@gmail.com"
+                    },
+                    {
+                        "name": "password",
+                        "value": "12345678"
+                    },
+                    {
+                        "name": "username",
+                        "value": "rleiva08",
+                        "isDisabled": true
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "46cfc3e7-9cf6-44f3-9215-f3eac17d7290",
+            "colId": "eba6fbc3-efe6-4924-915a-059ba4379c70",
+            "containerId": "8bb20fbf-1eb9-4911-bb8d-c88a1814c8ed",
+            "name": "Add",
+            "url": "field/addField",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-08-27T03:28:40.219Z",
+            "modified": "2024-08-27T04:09:05.748Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "fieldName",
+                        "value": "Fubol 4"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "photo",
+                        "value": "c:\\Users\\lenin.DESKTOP-HEU2GJD\\Downloads\\field.jfif"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "3e2f44c5-a757-446a-b7b4-1163ad3b25ea",
+            "colId": "eba6fbc3-efe6-4924-915a-059ba4379c70",
+            "containerId": "8bb20fbf-1eb9-4911-bb8d-c88a1814c8ed",
+            "name": "GetFields",
+            "url": "field/getFields",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-08-27T03:43:14.648Z",
+            "modified": "2024-08-27T03:45:12.655Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "5ff59e77-78a7-4f9d-866e-3b07164be348",
+            "colId": "eba6fbc3-efe6-4924-915a-059ba4379c70",
+            "containerId": "f7487dff-61cc-454d-b41c-1bf1f280b27f",
+            "name": "Add",
+            "url": "reservation/addReservation",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-08-27T04:38:25.941Z",
+            "modified": "2024-08-27T06:16:37.773Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NmNjZGEyYzI2ZWI2ZmMzNDYzZjFlYmIiLCJlbWFpbCI6InJsZWl2YTA5QGdtYWlsLmNvbSIsImlhdCI6MTcyNDczOTE0NywiZXhwIjoxNzI0NzQ5OTQ3fQ.ghjLXD_bunvyZ-LdA2ZRVU0VVKfXc6ecUg_q3kFm5WY"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "fieldId",
+                        "value": "66cd4b37e6c7898da6c8abfc"
+                    },
+                    {
+                        "name": "uid",
+                        "value": "66c7848d74d0fc9c0a4914d1"
+                    },
+                    {
+                        "name": "startTime",
+                        "value": "2024-08-21 13:00"
+                    },
+                    {
+                        "name": "endTime",
+                        "value": "2024-08-21 14:00"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "payment",
+                        "value": "c:\\Users\\lenin.DESKTOP-HEU2GJD\\Downloads\\payment.png"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "1bc9a73c-8d45-415f-913c-3b7cfdcfa6a9",
+            "colId": "eba6fbc3-efe6-4924-915a-059ba4379c70",
+            "containerId": "f7487dff-61cc-454d-b41c-1bf1f280b27f",
+            "name": "GetReservation",
+            "url": "reservation/myReservations",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-08-27T04:38:40.228Z",
+            "modified": "2024-08-27T06:19:12.541Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NmNjZGEyYzI2ZWI2ZmMzNDYzZjFlYmIiLCJlbWFpbCI6InJsZWl2YTA5QGdtYWlsLmNvbSIsImlhdCI6MTcyNDczOTU0MywiZXhwIjoxNzI0NzUwMzQzfQ._EMHzEaqLmPnxsvwZEM3jrUghRHrPZqx2CQ4ds4aeJ4"
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ],
+    "settings": {
+        "options": {
+            "baseUrl": "localhost:2656/sportsFieldManager/v1/"
+        }
+    }
+}
