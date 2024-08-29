@@ -32,6 +32,10 @@ export class ExpressServer {
         this.app.use(helmet())
         this.app.use(morgan('dev'))
         this.app.use(express.json());
+        this.app.use((err, req, res, next) => {
+            console.error(err.stack);
+            res.status(500).send('Something broke!');
+          });
     }
     routes(){
         this.app.use(`${this.urlBase}/auth`, authRoutes)
