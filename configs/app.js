@@ -22,16 +22,10 @@ export class ExpressServer {
     }
 
     middlewares(){
-        this.app.use(cors({
-            origin: 'http://localhost:5173', // Asegúrate de que este sea el origen correcto
-            methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
-            credentials: true // Si necesitas enviar cookies o headers de autenticación
-        }));
-        this.app.options('*', cors()); // Maneja las solicitudes preflight de CORS
+        this.app.use(cors())
         this.app.use(express.urlencoded({extended: false}))
         this.app.use(helmet())
         this.app.use(morgan('dev'))
-        this.app.use(express.json());
     }
     routes(){
         this.app.use(`${this.urlBase}/auth`, authRoutes)
